@@ -16,9 +16,10 @@ const App = () => {
     }
 
     const getAnimeList = async (title) => {
-      const temp = await fetch(`https://api.jikan.moe/v4/search/anime?q=${title}&limit=10`)
+      const response = await fetch(`https://api.jikan.moe/v4/anime?q=${title}&limit=15`)
         .then(res => res.json());
-      setAnimeList(temp.results);    
+      setAnimeList(response.results); 
+      console.log(animeList)   
     }
 
   return (
