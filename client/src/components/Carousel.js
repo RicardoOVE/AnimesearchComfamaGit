@@ -10,9 +10,9 @@ import img4 from "../images/4.jpg"
 
 const Carousel = () => {
 
-    const dogslide = [img1, img2, img3, img4];
+    const animecarousel = [img1, img2, img3, img4];
     const delay = 6000;
-    const [index, setIndex] = React.useState(0);
+    const [index, setIndex] = useState(0);
     const timeoutRef = React.useRef(null);
 
     function resetTimeout() {
@@ -21,12 +21,12 @@ const Carousel = () => {
         }
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         resetTimeout();
         timeoutRef.current = setTimeout(
             () =>
                 setIndex((prevIndex) =>
-                    prevIndex === dogslide.length - 1 ? 0 : prevIndex + 1
+                    prevIndex === animecarousel.length - 1 ? 0 : prevIndex + 1
                 ),
             delay
         );
@@ -36,17 +36,19 @@ const Carousel = () => {
     }, [index]);
 
     return (
-        <div>
-            <div className="slideshow pt-5 mt-2">
-                <div className="slideshowSlider" style={{transform: `translate3d(${-index * 100}%, 0, 0)`}}>
-                    {dogslide.map((dogimage, index) => (
-                    <div className="slide"  key={index}>
-                        <img src={dogimage} alt="dogbanner" style={{maxWidth: "100%"}}/>
+        <div className="container-fluid">
+            <div className="fixed-top" style={{backgroundColor: "#d4af37", width: "100%", height: "20px", marginTop: '90px'}}></div>
+
+            <div className="slideshow">
+                <div className="slideshowSlider " style={{transform: `translate3d(${-index * 100}%, 0, 0)`}}>
+                    {animecarousel.map((animeimage, index) => (
+                    <div className="slide "  key={index}>
+                        <img src={animeimage} alt="animebanner" style={{maxWidth: "100%"}}/>
                     </div>
                     ))}
                 </div>
             </div>
-            <div style={{backgroundColor: "#d4af37", width: "100%", height: "30px", marginTop: '15px'}}></div>
+            <div style={{backgroundColor: "#d4af37", width: "100%", height: "20px"}}></div>
         </div>
     )
 }
