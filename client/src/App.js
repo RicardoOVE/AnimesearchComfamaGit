@@ -1,9 +1,8 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Carousel from './components/Carousel';
 import Navbar from './components/Navbar';
 import SearchResults from './components/SearchResults';
-import axios from "axios";
 
 const App = () => {
 
@@ -36,7 +35,6 @@ const App = () => {
       setAnimeList(response.data);
       setAnimeCount(response.pagination.items.total)
     }
-    
     
     const [data, setData] = useState("");
 
