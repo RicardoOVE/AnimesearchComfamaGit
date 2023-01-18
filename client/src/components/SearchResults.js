@@ -30,9 +30,9 @@ const SearchResults = props => {
 
     return (
         <div>
-            <form class="d-flex justify-content-center py-4" onSubmit={props.getAnimeTitle}>
-                <input class="form-control w-25" type="search" placeholder="Search an anime title ..." required value={props.searchTitle} onChange={e => props.setSearchTitle(e.target.value)}/>
-                <button class="btn btn-outline-warning mx-2" type="submit">Search</button>
+            <form className="d-flex justify-content-center py-4" onSubmit={props.getAnimeTitle}>
+                <input className="form-control w-25" type="search" placeholder="Search an anime title ..." required value={props.searchTitle} onChange={e => props.setSearchTitle(e.target.value)}/>
+                <button className="btn btn-outline-warning mx-2" type="submit">Search</button>
             </form>
 
             {
@@ -63,12 +63,12 @@ const SearchResults = props => {
                 {
                     props.animeList.length > 0 ? (
                         props.animeList.map((show, index)=>(
-                            <div class="card mx-2 my-2" style={{width: '22rem', flexDirection: 'row'}}>
-                                <img src={show.images.jpg.large_image_url} class="card-img-top" alt="image" style={{width: '50%', objectFit: 'cover'}}></img>
-                                <div class="card-body">
-                                    <h5 class="card-title">{show.title}</h5>
-                                    <p class="card-text">Score: {show.score}</p>
-                                    <p class="card-text">Message</p>
+                            <div className="card mx-2 my-2" style={{width: '22rem', flexDirection: 'row'}} key={index}>
+                                <img src={show.images.jpg.large_image_url} className="card-img-top" alt="image" style={{width: '50%', objectFit: 'cover'}}></img>
+                                <div className="card-body">
+                                    <h5 className="card-title">{show.title}</h5>
+                                    <p className="card-text">Score: {show.score}</p>
+                                    <p className="card-text">Message</p>
                                 </div>
                             </div>
 

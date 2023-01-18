@@ -21,6 +21,7 @@ Remove <React.StrictMode> in index.js
 
 const express = require("express");
 const cors = require("cors");
+
 const app = express();
 
 //Lets me use a different origin
@@ -29,6 +30,7 @@ app.use(
         origin: "http://localhost:3000"
     })
 );
+
 
 //Import Routes
 const myRoutes = require("./server/routes/anime.routes");
