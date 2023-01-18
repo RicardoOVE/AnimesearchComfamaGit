@@ -44,7 +44,7 @@ const SearchResults = props => {
                                 <div>
                                     <h5>{show.title}</h5>
                                     <p>Score: {show.score}</p>
-                                    <p className="mt-auto">Message</p>
+                                    <p className="mt-auto">Review: {show.scoreReview}</p>
                                 </div>
                             </div>
                         ))}
@@ -60,19 +60,21 @@ const SearchResults = props => {
             </div>
             
             <div className="d-flex row justify-content-center"> 
-                {
+            {
                     props.animeList.length > 0 ? (
-                        props.animeList.map((show, index)=>(
+                        props.animeList.sort((a, b) => {
+                            return b.score - a.score
+                        }).map((show, index) => (
                             <div className="card mx-2 my-2" style={{width: '22rem', flexDirection: 'row'}} key={index}>
                                 <img src={show.images.jpg.large_image_url} className="card-img-top" alt="image" style={{width: '50%', objectFit: 'cover'}}></img>
                                 <div className="card-body">
                                     <h5 className="card-title">{show.title}</h5>
                                     <p className="card-text">Score: {show.score}</p>
-                                    <p className="card-text">Message</p>
+                                    <p className="card-text">Review: {show.scoreReview}</p>
                                 </div>
                             </div>
 
-                    ))) : ''
+                        ))) : ''
                 }
             </div>
             <div>

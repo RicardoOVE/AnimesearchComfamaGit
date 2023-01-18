@@ -28,7 +28,7 @@ const App = () => {
       const data = await response.json();
       console.log(data); 
     };
-    */
+    
 
     const getAnimeList = async (title) => {
       const response = await fetch(`https://api.jikan.moe/v4/anime?q=${title}&limit=15`)
@@ -37,7 +37,7 @@ const App = () => {
       setAnimeCount(response.pagination.items.total)
     }
     
-    /*
+    
     const [data, setData] = useState("");
 
     const callAPI = async () => {
@@ -47,9 +47,17 @@ const App = () => {
     }
     */
 
+    const getAnimeList = async (title) => {
+      const response = await fetch(`http://localhost:8000/animes/search?q=${title}`)
+          .then(res => res.json());
+      setAnimeList(response);
+      setAnimeCount(response.length)
+    }
+
   return (
     <div className='container'>
       <Carousel/>
+
       <SearchResults getAnimeTitle={getAnimeTitle} searchTitle={searchTitle} setSearchTitle={setSearchTitle} animeList={animeList} animeCount={animeCount}/>
       <BrowserRouter>
         <Switch>
