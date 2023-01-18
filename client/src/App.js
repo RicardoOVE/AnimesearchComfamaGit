@@ -7,25 +7,25 @@ import SearchResults from './components/SearchResults';
 const App = () => {
 
   const [animeList, setAnimeList] = useState([]);
+  const [animeCount, setAnimeCount] = useState("");
   const [searchTitle, setSearchTitle] = useState("");
 
     const getAnimeTitle = e => {
       e.preventDefault();
-      console.log(searchTitle)
       getAnimeList(searchTitle);
     }
 
     const getAnimeList = async (title) => {
       const response = await fetch(`https://api.jikan.moe/v4/anime?q=${title}&limit=15`)
         .then(res => res.json());
-      setAnimeList(response.results); 
-      console.log(animeList)   
+      setAnimeList(response.data);
+      setAnimeCount(response.pagination.items.total)
     }
 
   return (
     <div className='container'>
       <Carousel/>
-      <SearchResults getAnimeTitle={getAnimeTitle} searchTitle={searchTitle} setSearchTitle={setSearchTitle} animeList={animeList}/>
+      <SearchResults getAnimeTitle={getAnimeTitle} searchTitle={searchTitle} setSearchTitle={setSearchTitle} animeList={animeList} animeCount={animeCount}/>
       <BrowserRouter>
         <Switch>
           <Route path="/" render={()=> <Navbar />} />

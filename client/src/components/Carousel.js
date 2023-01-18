@@ -6,10 +6,12 @@ import img1 from "../images/1.jpg"
 import img2 from "../images/2.jpg"
 import img3 from "../images/3.jpg"
 import img4 from "../images/4.jpg"
+import img5 from "../images/5.jpg"
+import img6 from "../images/6.jpg"
 
 const Carousel = () => {
 
-    const animecarousel = [img1, img2, img3, img4];
+    const animecarousel = [img1, img2, img3, img4, img5, img6];
     const delay = 6000;
     const [index, setIndex] = useState(0);
     const timeoutRef = React.useRef(null);
